@@ -12,43 +12,45 @@ import {
 const cards = [
   {
     id: 1,
-    title: "Expert Coaches",
-    description: "Certified gymnastics instructors with years of experience",
-    action: "Meet Our Team"
+    title: "Safe & Fun Environment",
+    description: "Our state-of-the-art facility provides a secure space where children can explore, learn, and play with confidence while having an absolute blast.",
+    action: "Explore Our Facility"
   },
   {
     id: 2,
-    title: "Safe Environment", 
-    description: "State-of-the-art equipment and safety protocols",
-    action: "See Our Facility"
+    title: "Healthy Body Development", 
+    description: "Build strength, flexibility, and coordination through expertly designed programs that promote overall physical wellness and lifelong healthy habits.",
+    action: "View Health Benefits"
   },
   {
     id: 3,
-    title: "Fun Programs",
-    description: "Age-appropriate classes that make learning enjoyable",
-    action: "View Classes"
+    title: "Expert Coaching Team",
+    description: "Our certified instructors bring years of experience and passion, providing personalized attention to help each child reach their full potential.",
+    action: "Meet Our Coaches"
   },
-  {
-    id: 4,
-    title: "Character Building",
-    description: "We build confidence, discipline, and teamwork",
-    action: "Our Philosophy"
-  }
+  // {
+  //   id: 4,
+  //   title: "Family-Friendly Community",
+  //   description: "Join a welcoming community where families connect, support each other, and celebrate every milestone together in your child's gymnastics journey.",
+  //   action: "Join Our Community"
+  // }
 ];
 ---
 
-<div class="wrapper flex-center flex-wrap gap-10">
+<div class="flex-center flex-wrap gap-10 px-10">
   {cards.map((card) => (
-    <Card className="min-w-[350px]" key={card.id}>
+    <Card className="min-w-[350px] max-w-[350px]" key={card.id}>
       <CardHeader>
+        <div class="w-full h-48 bg-red-500 rounded-lg mb-4 flex items-center justify-center">
+          <span class="text-white font-semibold">Image Placeholder</span>
+        </div>
         <CardTitle className="text-xl text-secondary font-bold">{card.title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <p>More details about {card.title.toLowerCase()}</p>
+        <CardDescription className="text-foreground text-md leading-relaxed">
+          {card.description}
+        </CardDescription>
       </CardContent>
-      <CardFooter>
-        <p>Learn more</p>
-      </CardFooter>
     </Card>
   ))}
 </div>
