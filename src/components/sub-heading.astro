@@ -7,7 +7,7 @@ export interface Props {
 }
 
 // Destructure props from Astro.props
-const { title, color = 'text-amber-900', size = 'lg' } = Astro.props;
+const { title, color = 'text-secondary', size = 'lg' } = Astro.props;
 
 // You can also do logic with props
 const sizeClasses = {
@@ -17,7 +17,7 @@ const sizeClasses = {
 };
 ---
 
-<div class="flex items-center justify-center gap-6 py-8">
+<div class="flex items-center justify-center gap-6 py-10">
     <!-- Left wavy line -->
     <div class="flex-1 max-w-32">
         <svg viewBox="0 0 100 8" class={`w-full h-2 ${color}`} fill="currentColor">
