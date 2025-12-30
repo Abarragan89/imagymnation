@@ -1,0 +1,39 @@
+---
+// Define the props interface (TypeScript style)
+export interface Props {
+  title: string;
+  color?: string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+// Destructure props from Astro.props
+const { title, color = 'text-amber-900', size = 'lg' } = Astro.props;
+
+// You can also do logic with props
+const sizeClasses = {
+  sm: 'text-xl md:text-2xl',
+  md: 'text-2xl md:text-3xl',
+  lg: 'text-3xl md:text-4xl'
+};
+---
+
+<div class="flex items-center justify-center gap-6 py-8">
+    <!-- Left wavy line -->
+    <div class="flex-1 max-w-32">
+        <svg viewBox="0 0 100 8" class={`w-full h-2 ${color}`} fill="currentColor">
+            <path d="M0,4 Q12.5,0 25,4 T50,4 T75,4 T100,4" stroke="currentColor" stroke-width="2" fill="none"/>
+        </svg>
+    </div>
+    
+    <!-- Heading -->
+    <h2 class={`${sizeClasses[size]} font-bold ${color} text-center whitespace-nowrap`}>
+        {title}
+    </h2>
+    
+    <!-- Right wavy line -->
+    <div class="flex-1 max-w-32">
+        <svg viewBox="0 0 100 8" class={`w-full h-2 ${color}`} fill="currentColor">
+            <path d="M0,4 Q12.5,0 25,4 T50,4 T75,4 T100,4" stroke="currentColor" stroke-width="2" fill="none"/>
+        </svg>
+    </div>
+</div>

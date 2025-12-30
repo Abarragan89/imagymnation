@@ -1,0 +1,54 @@
+---
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
+const cards = [
+  {
+    id: 1,
+    title: "Expert Coaches",
+    description: "Certified gymnastics instructors with years of experience",
+    action: "Meet Our Team"
+  },
+  {
+    id: 2,
+    title: "Safe Environment", 
+    description: "State-of-the-art equipment and safety protocols",
+    action: "See Our Facility"
+  },
+  {
+    id: 3,
+    title: "Fun Programs",
+    description: "Age-appropriate classes that make learning enjoyable",
+    action: "View Classes"
+  },
+  {
+    id: 4,
+    title: "Character Building",
+    description: "We build confidence, discipline, and teamwork",
+    action: "Our Philosophy"
+  }
+];
+---
+
+<div class="wrapper flex-center flex-wrap gap-10">
+  {cards.map((card) => (
+    <Card className="min-w-[350px]" key={card.id}>
+      <CardHeader>
+        <CardTitle className="text-xl text-secondary font-bold">{card.title}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p>More details about {card.title.toLowerCase()}</p>
+      </CardContent>
+      <CardFooter>
+        <p>Learn more</p>
+      </CardFooter>
+    </Card>
+  ))}
+</div>

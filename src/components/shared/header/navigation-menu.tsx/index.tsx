@@ -98,8 +98,22 @@ export default function Navigation({ currentPath }: { currentPath: string }) {
                     </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
+                    <NavigationMenuLink asChild className="text-lg">
+                        <a href="/coaches" className="relative">
+                            Coaches
+                            {currentPath === '/coaches' && (
+                                <img
+                                    src="/images/link-underline.png"
+                                    alt=""
+                                    className="absolute -bottom-1 left-0 w-full h-4 object-cover"
+                                />
+                            )}
+                        </a>
+                    </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
                     <NavigationMenuLink asChild className="text-md">
-                        <Button className="ml-3" variant="accent">
+                        <Button asChild className="ml-3" variant="accent">
                             <a href="/sign-up">Login/Signup</a>
                         </Button>
                     </NavigationMenuLink>
