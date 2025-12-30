@@ -4,29 +4,32 @@
 :root {
   /* Base surfaces */
   --background: oklch(97.802% 0.00517 106.828);
-  --foreground: oklch(32.507% 0.06411 85.157);
+  --foreground: oklch(12.148% 0.00312 106.932);
+  /* --foreground: oklch(32.507% 0.06411 85.157); */
 
-  --card: oklch(0.99 0.008 95);
-  --card-foreground: oklch(0.18 0.02 40);
+  --card: oklch(95.939% 0.00951 279.597);
+  --card-foreground: oklch(51.727% 0.24102 283.089);
 
   --popover: oklch(0.99 0.008 95);
   --popover-foreground: oklch(19.502% 0.04233 46.588);
 
   /* Primary — brand orange/yellow */
-  --primary: oklch(86.463% 0.17322 93.999);
-  --primary-foreground: oklch(26.061% 0.05077 86.104);
+  --primary: oklch(96.856% 0.2053 109.705);
+  /* --primary: oklch(86.463% 0.17322 93.999); */
+  --primary-foreground: oklch(16.325% 0.018 240.633);
 
   /* Secondary — friendly athletic blue */
-  --secondary: oklch(75.278% 0.1672 65.449);
-  --secondary-foreground: oklch(0.22 0.03 240);
+  --secondary: oklch(76.523% 0.17515 62.566);
+  --secondary-foreground: oklch(19.804% 0.02737 242.987);
 
   /* Muted UI elements */
   --muted: oklch(0.93 0.015 95);
   /* --muted-foreground: oklch(32.246% 0.02788 43.383); */
-  --muted-foreground: oklch(32.252% 0.08799 40.867);
+  --muted-foreground: oklch(37.132% 0.00575 33.949);
 
   /* Accent — brand red (sparingly) */
-  --accent: oklch(61.431% 0.19536 34.051);
+  /* --accent: oklch(61.344% 0.20076 260.487); */
+  --accent: oklch(58.783% 0.23396 28.845);
   --accent-foreground: oklch(0.98 0.01 95);
 
   /* Destructive */
@@ -34,7 +37,7 @@
   --destructive-foreground: oklch(0.98 0.01 95);
 
   /* Inputs & borders */
-  --border: oklch(0.88 0.015 95);
+  --border: oklch(99.502% 0.0033 67.012);
   --input: oklch(0.88 0.015 95);
   --ring: oklch(0.78 0.16 75);
 

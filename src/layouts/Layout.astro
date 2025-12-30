@@ -12,8 +12,8 @@ import Header from "@/components/shared/header";
 		<meta name="generator" content={Astro.generator} />
 		<title>Imagymnation</title>
 	</head>
-	<body>
-		<Header client:load />
+	<body class="min-h-screen bg-background text-foreground antialiased">
+		<Header client:load currentPath={Astro.url.pathname}/>
 		<slot />
 	</body>
 </html>

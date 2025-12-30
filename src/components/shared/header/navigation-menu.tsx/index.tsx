@@ -6,8 +6,7 @@ import {
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
-    NavigationMenuTrigger,
-    navigationMenuTriggerStyle,
+    NavigationMenuTrigger
 } from "@/components/ui/navigation-menu"
 import { Button } from "@/components/ui/button"
 
@@ -49,14 +48,15 @@ const components: { title: string; href: string; description: string }[] = [
     },
 ]
 
-export default function Navigation() {
+export default function Navigation({ currentPath }: { currentPath: string }) {
 
     return (
         <NavigationMenu>
             <NavigationMenuList className="flex-wrap gap-x-1">
                 <NavigationMenuItem>
-                    <NavigationMenuLink asChild className="text-lg">
+                    <NavigationMenuLink active={true} asChild className="text-lg">
                         <a href="/">Home</a>
+                        {currentPath === '/' && (<span></span>)}
                     </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
@@ -75,14 +75,14 @@ export default function Navigation() {
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
-                {/* <NavigationMenuItem>
+                <NavigationMenuItem>
                     <NavigationMenuLink asChild className="text-lg">
                         <a href="/birthday-parties">Parties</a>
                     </NavigationMenuLink>
-                </NavigationMenuItem> */}
+                </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuLink asChild className="text-lg font-normal">
-                        <Button>
+                        <Button className="ml-3" variant="accent">
                             <a href="/sign-up">Login/Signup</a>
                         </Button>
                     </NavigationMenuLink>
