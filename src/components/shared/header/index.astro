@@ -1,0 +1,16 @@
+---
+import Navigation from './navigation-menu.tsx'
+
+interface Props {
+    currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+---
+
+<header class='flex-between px-5 pt-1'>
+    <a href="/">
+        <img src="images/header-logo.png" alt="Imagymnation Logo" class="h-16 w-36 relative"/>
+    </a>
+    <Navigation client:load currentPath={currentPath} />
+</header>

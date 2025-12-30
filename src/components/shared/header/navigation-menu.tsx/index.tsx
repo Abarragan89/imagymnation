@@ -54,9 +54,17 @@ export default function Navigation({ currentPath }: { currentPath: string }) {
         <NavigationMenu>
             <NavigationMenuList className="flex-wrap gap-x-1">
                 <NavigationMenuItem>
-                    <NavigationMenuLink active={true} asChild className="text-lg">
-                        <a href="/">Home</a>
-                        {currentPath === '/' && (<span></span>)}
+                    <NavigationMenuLink asChild className="text-lg">
+                        <a href="/" className="relative">
+                            Home
+                            {currentPath === '/' && (
+                                <img
+                                    src="/images/link-underline.png"
+                                    alt=""
+                                    className="absolute -bottom-1  left-0 w-full h-4 object-cover"
+                                />
+                            )}
+                        </a>
                     </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
@@ -77,11 +85,20 @@ export default function Navigation({ currentPath }: { currentPath: string }) {
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuLink asChild className="text-lg">
-                        <a href="/birthday-parties">Parties</a>
+                        <a href="/birthday-parties" className="relative">
+                            Parties
+                            {currentPath === '/birthday-parties' && (
+                                <img
+                                    src="/images/link-underline.png"
+                                    alt=""
+                                    className="absolute -bottom-1 left-0 w-full h-4 object-cover"
+                                />
+                            )}
+                        </a>
                     </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuLink asChild className="text-lg font-normal">
+                    <NavigationMenuLink asChild className="text-md">
                         <Button className="ml-3" variant="accent">
                             <a href="/sign-up">Login/Signup</a>
                         </Button>

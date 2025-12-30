@@ -4,7 +4,7 @@
 :root {
   /* Base surfaces */
   --background: oklch(97.802% 0.00517 106.828);
-  --foreground: oklch(12.148% 0.00312 106.932);
+  --foreground: oklch(26.038% 0.05654 57.624);
   /* --foreground: oklch(32.507% 0.06411 85.157); */
 
   --card: oklch(95.939% 0.00951 279.597);
@@ -202,7 +202,16 @@
 }
 
 .diamond-button {
-    clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
-    transform: rotate(5deg);
-    box-shadow: 0 0 15px rgba(255, 255, 0, 0.5);
+  clip-path: polygon(
+    20% 0%,
+    80% 0%,
+    100% 20%,
+    100% 80%,
+    80% 100%,
+    20% 100%,
+    0% 80%,
+    0% 20%
+  );
+  transform: rotate(5deg);
+  box-shadow: 0 0 15px rgba(255, 255, 0, 0.5);
 }
