@@ -20,3 +20,21 @@ import Header from "@/components/shared/header/index.astro";
 		<Footer />
 	</body>
 </html>
+
+<!-- Small script to handle animations on scroll -->
+<script>
+  // Runs once per page, handles all .animate-on-scroll elements
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  });
+</script>
