@@ -11,13 +11,13 @@ export default function MobileNavLinks({ currentPath }: MobileNavLinksProps) {
         <div className="w-full">
             {/* Classes Section */}
             <div className="mt-4 w-full">
-                <h3 className="text-sm font-bold uppercase tracking-wider mb-3 px-3">
-                    Classes & Programs
+                <h3 className="text-md font-bold uppercase tracking-wider mb-3 px-3">
+                    Classes
                 </h3>
                 <div className="space-y-1 w-full">
                     {navigationData.classes.map((classItem) => (
                         <NavigationMenuItem key={classItem.href} className="w-full block">
-                            <NavigationMenuLink asChild className="w-full block rounded-none">
+                            <NavigationMenuLink asChild className="w-full block rounded-none text-md">
                                 <a
                                     href={classItem.href}
                                     className="w-full transition-colors pl-6 hover:bg-secondary"
@@ -32,12 +32,12 @@ export default function MobileNavLinks({ currentPath }: MobileNavLinksProps) {
 
             {/* Services Section */}
             <div className="mt-4 w-full">
-                <h3 className="text-sm font-bold uppercase tracking-wider mb-3 px-3">
+                <h3 className="text-md font-bold uppercase tracking-wider mb-3 px-3">
                     Services
                 </h3>
                 <div className="space-y-1 w-full">
                     <NavigationMenuItem className="w-full block">
-                        <NavigationMenuLink asChild className="w-full block rounded-none hover:bg-secondary">
+                        <NavigationMenuLink asChild className="w-full block rounded-none hover:bg-secondary text-md">
                             <a
                                 href="/birthday-parties"
                                 className={`w-full block py-2 pl-6 ${currentPath === '/birthday-parties'
@@ -66,7 +66,7 @@ export default function MobileNavLinks({ currentPath }: MobileNavLinksProps) {
 
                     {navigationData.additionalServices.map((service) => (
                         <NavigationMenuItem key={service.href} className="w-full block">
-                            <NavigationMenuLink asChild className="w-full block rounded-none hover:bg-secondary">
+                            <NavigationMenuLink asChild className="w-full block rounded-none hover:bg-secondary text-md">
                                 <a
                                     href={service.href}
                                     className="w-full block py-2 pl-6"
