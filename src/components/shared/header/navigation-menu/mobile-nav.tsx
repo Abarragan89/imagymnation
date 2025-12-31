@@ -1,29 +1,33 @@
-"use client";
 import {
     Sheet,
     SheetContent,
-    SheetDescription,
     SheetHeader,
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
-import NavLinks from "./nav-links"
+import MobileNavLinks from "./mobile-nav-links"
+import { Home, Menu } from "lucide-react";
 import { NavigationMenu, NavigationMenuList } from "@/components/ui/navigation-menu";
-import { Menu } from "lucide-react";
 
 export default function MobileNav({ currentPath }: { currentPath: string }) {
+
     return (
         <Sheet>
-            <SheetTrigger className="md:hidden">
+            <SheetTrigger>
                 <Menu />
             </SheetTrigger>
-            <SheetContent>
+            <SheetContent className="max-w-100">
                 <SheetHeader>
                     <SheetTitle>Menu</SheetTitle>
                 </SheetHeader>
-                <NavigationMenu className="items-start justify-start">
-                    <NavigationMenuList className="flex flex-col items-start pl-3">
-                        <NavLinks currentPath={currentPath} />
+                <a href="/" className={` pl-3
+                    ${currentPath === '/' ? 'text-secondary' : 'hover:text-secondary'}
+                `}>
+                    <Home size={23} />
+                </a>
+                <NavigationMenu className="w-full max-w-full block">
+                    <NavigationMenuList className="flex flex-col items-stretch">
+                        <MobileNavLinks currentPath={currentPath} />
                     </NavigationMenuList>
                 </NavigationMenu>
             </SheetContent>

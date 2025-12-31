@@ -1,40 +1,13 @@
 import { Button } from '@/components/ui/button'
 import { NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger } from '@/components/ui/navigation-menu'
 import React from 'react'
+import { navigationData } from '@/data/navigation'
 
-const components: { title: string; href: string; description: string }[] = [
-    {
-        title: "Baby Classes",
-        href: "/docs/primitives/hover-card",
-        description:
-            "For sighted users to preview content available behind a link.",
-    },
-    {
-        title: "Kindergym",
-        href: "/docs/primitives/progress",
-        description:
-            "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-    },
-    {
-        title: "Gymnastics (6+)",
-        href: "/docs/primitives/scroll-area",
-        description: "Visually or semantically separates content.",
-    },
-    {
-        title: "Ninjas",
-        href: "/docs/primitives/tabs",
-        description:
-            "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-    },
-    {
-        title: "Open Gym",
-        href: "/docs/primitives/tooltip",
-        description:
-            "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-    },
-]
+interface DesktopNavLinksProps {
+    currentPath: string;
+}
 
-export default function NavLinks({ currentPath }: { currentPath: string }) {
+export default function DesktopNavLinks({ currentPath }: DesktopNavLinksProps) {
     return (
         <>
             <NavigationMenuItem>
@@ -45,39 +18,30 @@ export default function NavLinks({ currentPath }: { currentPath: string }) {
                             <img
                                 src="/images/link-underline.png"
                                 alt=""
-                                className="absolute -bottom-1  left-0 w-full h-4 object-cover"
+                                className="absolute -bottom-1 left-0 w-full h-4 object-cover"
                             />
                         )}
                     </a>
                 </NavigationMenuLink>
             </NavigationMenuItem>
+
             <NavigationMenuItem>
-                {/* Only show the trigger in desktop */}
-                <NavigationMenuTrigger className="hidden md:flex text-lg font-normal">Classes</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="text-lg font-normal">Classes</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                    <ul className="grid gap-2 w-80">
-                        {components.map((component) => (
+                    <ul className="grid gap-2 sm:w-100 md:grid-cols-2 xl:w-150">
+                        {navigationData.classes.map((classItem) => (
                             <ListItem
-                                key={component.title}
-                                title={component.title}
-                                href={component.href}
+                                key={classItem.title}
+                                title={classItem.title}
+                                href={classItem.href}
                             >
-                                {component.description}
+                                {classItem.description}
                             </ListItem>
                         ))}
                     </ul>
                 </NavigationMenuContent>
             </NavigationMenuItem>
 
-            {/* This only show in mobile */}
-            <h4 className='text-lg font-bold md:hidden'>All Classes</h4>
-            {components.map((component) => (
-                <NavigationMenuItem className="md:hidden" key={component.title}>
-                    <NavigationMenuLink asChild className="text-lg ml-5">
-                        <a href={component.href}>{component.title}</a>
-                    </NavigationMenuLink>
-                </NavigationMenuItem>
-            ))}
             <NavigationMenuItem>
                 <NavigationMenuLink asChild className="text-lg">
                     <a href="/birthday-parties" className="relative">
@@ -92,11 +56,12 @@ export default function NavLinks({ currentPath }: { currentPath: string }) {
                     </a>
                 </NavigationMenuLink>
             </NavigationMenuItem>
+
             <NavigationMenuItem>
                 <NavigationMenuLink asChild className="text-lg">
-                    <a href="/coaches" className="relative">
-                        Coaches
-                        {currentPath === '/coaches' && (
+                    <a href="/camps" className="relative">
+                        Camps
+                        {currentPath === '/camps' && (
                             <img
                                 src="/images/link-underline.png"
                                 alt=""
@@ -106,6 +71,7 @@ export default function NavLinks({ currentPath }: { currentPath: string }) {
                     </a>
                 </NavigationMenuLink>
             </NavigationMenuItem>
+
             <NavigationMenuItem>
                 <NavigationMenuLink asChild className="text-md">
                     <Button asChild className="ml-3" variant="accent">

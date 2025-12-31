@@ -1,8 +1,9 @@
+
 import {
     NavigationMenu,
     NavigationMenuList,
 } from "@/components/ui/navigation-menu"
-import NavLinks from "./nav-links";
+import DesktopNavLinks from "./desktop-nav-links";
 import MobileNav from "./mobile-nav";
 
 interface NavigationMenuWrapperProps {
@@ -12,13 +13,17 @@ interface NavigationMenuWrapperProps {
 export default function NavigationMenuWrapper({ currentPath }: NavigationMenuWrapperProps) {
     return (
         <>
+            {/* Desktop Navigation - Hidden on mobile (md breakpoint) */}
             <NavigationMenu className="hidden md:block">
-                <NavigationMenuList className="flex-wrap gap-x-1">
-                    <NavLinks currentPath={currentPath} />
+                <NavigationMenuList className="flex-wrap gap-x-3">
+                    <DesktopNavLinks currentPath={currentPath} />
                 </NavigationMenuList>
             </NavigationMenu>
 
-            <MobileNav currentPath={currentPath} />
+            {/* Mobile Navigation - Shown on mobile only */}
+            <div className="md:hidden">
+                <MobileNav currentPath={currentPath} />
+            </div>
         </>
     );
 }

@@ -29,7 +29,8 @@
 
   /* Accent — brand red (sparingly) */
   /* --accent: oklch(61.344% 0.20076 260.487); */
-  --accent: oklch(58.783% 0.23396 28.845);
+  /* --accent: oklch(58.783% 0.23396 28.845); */
+  --accent: oklch(52.129% 0.19399 259.668);
   --accent-foreground: oklch(0.98 0.01 95);
 
   /* Destructive */
