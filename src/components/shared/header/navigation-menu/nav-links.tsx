@@ -4,12 +4,6 @@ import React from 'react'
 
 const components: { title: string; href: string; description: string }[] = [
     {
-        title: "All Classes",
-        href: "/docs/primitives/alert-dialog",
-        description:
-            "A modal dialog that interrupts the user with important content and expects a response.",
-    },
-    {
         title: "Baby Classes",
         href: "/docs/primitives/hover-card",
         description:
@@ -58,9 +52,10 @@ export default function NavLinks({ currentPath }: { currentPath: string }) {
                 </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-lg font-normal">Classes</NavigationMenuTrigger>
+                {/* Only show the trigger in desktop */}
+                <NavigationMenuTrigger className="hidden md:flex text-lg font-normal">Classes</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                    <ul className="grid gap-2 sm:w-100 md:grid-cols-2 xl:w-150">
+                    <ul className="grid gap-2 w-80">
                         {components.map((component) => (
                             <ListItem
                                 key={component.title}
@@ -73,6 +68,16 @@ export default function NavLinks({ currentPath }: { currentPath: string }) {
                     </ul>
                 </NavigationMenuContent>
             </NavigationMenuItem>
+
+            {/* This only show in mobile */}
+            <h4 className='text-lg font-bold md:hidden'>All Classes</h4>
+            {components.map((component) => (
+                <NavigationMenuItem className="md:hidden" key={component.title}>
+                    <NavigationMenuLink asChild className="text-lg ml-5">
+                        <a href={component.href}>{component.title}</a>
+                    </NavigationMenuLink>
+                </NavigationMenuItem>
+            ))}
             <NavigationMenuItem>
                 <NavigationMenuLink asChild className="text-lg">
                     <a href="/birthday-parties" className="relative">
