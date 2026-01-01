@@ -1,0 +1,147 @@
+---
+import { classes } from '../../data/classes';
+import Layout from '../../layouts/Layout.astro';
+import { Button } from '@/components/ui/button';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+
+// Process all classes to group their schedules
+const allClassesData = classes.map((classData) => {
+  const groupedSchedules = classData.schedules.reduce((acc, schedule) => {
+    const key = `${schedule.ageRange}|${schedule.description}`;
+    if (!acc[key]) {
+      acc[key] = {
+        ageRange: schedule.ageRange,
+        description: schedule.description,
+        schedules: []
+      };
+    }
+    acc[key].schedules.push(schedule);
+    return acc;
+  }, {} as Record<string, { ageRange: string; description: string; schedules: typeof classData.schedules }>);
+
+  return {
+    ...classData,
+    subclasses: Object.values(groupedSchedules)
+  };
+});
+---
+
+<Layout>
+  <!-- Hero Section -->
+  <section class="relative h-[50vh] min-h-80 w-full overflow-hidden bg-gradient-to-br from-primary via-secondary to-accent">
+    <div class="absolute inset-0 bg-black/40"></div>
+    
+    <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-8">
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-background mb-4">
+        All Classes
+      </h1>
+      <p class="text-xl sm:text-2xl text-background/90 max-w-3xl">
+        View all our gymnastics classes for every age and skill level
+      </p>
+    </div>
+  </section>
+
+      <!-- Important Info -->
+    <div class="mt-16 bg-primary/10 border border-primary/20 rounded-lg p-6 max-w-4xl mx-auto">
+      <h3 class="text-xl font-bold mb-4 text-center">Important Information</h3>
+      <ul class="space-y-2 text-muted-foreground">
+        <li>✓ <span class="font-semibold">Tuition is monthly</span> based on 4 classes/month</li>
+        <li>✓ <span class="font-semibold">100% Guarantee</span> on all classes after your 1st class!</li>
+        <li>✓ <span class="font-semibold">$30 Annual Membership</span> (includes t-shirt or onesie)</li>
+        <li>✓ <span class="font-semibold">First class is FREE!</span> No commitment required</li>
+      </ul>
+    </div>
+
+  <!-- All Classes Section -->
+  <section class="wrapper py-12">
+    <div class="max-w-7xl mx-auto space-y-10">
+      {allClassesData.map((classData) => (
+        <div class="mt-8">
+          {/* Class Category Header */}
+          <div class="mb-8">
+            {/* <SubHeading title={classData.title}  size='xl'/> */}
+            <h2 class="text-4xl font-bold mb-3">{classData.title}</h2>
+            <p class="text-lg text-muted-foreground mb-2">Ages: {classData.ageRange}</p>
+            <p class="text-lg text-foreground leading-relaxed max-w-4xl">
+              {classData.description}
+            </p>
+            <a href={`/classes/${classData.class}`} class="inline-block mt-4">
+              <Button variant="secondary" size="sm">
+                View Full {classData.title} Page →
+              </Button>
+            </a>
+          </div>
+ 
+          {/* Schedules */}
+          {classData.schedules.length === 0 ? (
+            <div class="text-center py-8 bg-muted/30 rounded-lg">
+              <p class="text-lg text-muted-foreground">
+                Schedule coming soon! Contact us for more information.
+              </p>
+            </div>
+          ) : (
+            <div class="space-y-8">
+              {classData.subclasses.map((subclass) => (
+                <div class="bg-card rounded-lg shadow-lg overflow-hidden">
+                  {/* Subclass Header */}
+                  <div class="
+                  bg-linear-to-t from-secondary/20 to-primary/10
+                   px-6 py-4 border-b border-border">
+                    <h3 class="text-2xl font-bold">{subclass.schedules[0].name}</h3>
+                    <p class="text-muted-foreground mt-1">Ages: {subclass.ageRange}</p>
+                    <p class="text-foreground font-semibold mt-1">
+                      {subclass.schedules[0].price === 0 ? (
+                        <span class="text-accent">FREE - No Tuition Required!</span>
+                      ) : (
+                        `$${subclass.schedules[0].price}/month`
+                      )}
+                    </p>
+                  </div>
+
+                  {/* Schedule Table */}
+                  <Table>
+                    <TableHeader>
+                      <TableRow className="bg-muted/50">
+                        <TableHead></TableHead>
+                        <TableHead className="font-bold">Day</TableHead>
+                        <TableHead className="font-bold">Time</TableHead>
+                        <TableHead className="font-bold">Instructor</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {subclass.schedules.map((schedule, scheduleIdx) => (
+                        <TableRow key={scheduleIdx} className={schedule.status === 'waitlist' ? 'bg-destructive/5' : ''}>
+                          <TableCell className="">
+                            <Button 
+                              size="sm" 
+                              variant={schedule.status === 'waitlist' ? 'outline' : 'accent'}
+                              className={schedule.status === 'waitlist' ? 'border-destructive text-destructive hover:bg-destructive/10' : ''}
+                            >
+                              <a href={schedule.registrationLink || '/sign-up'}>
+                                {schedule.status === 'waitlist' ? 'Join Waitlist' : 'Register'}
+                              </a>
+                            </Button>
+                          </TableCell>
+                          <TableCell className="font-medium">{schedule.day}</TableCell>
+                          <TableCell>{schedule.time}</TableCell>
+                          <TableCell className="text-sm">{schedule.instructor}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

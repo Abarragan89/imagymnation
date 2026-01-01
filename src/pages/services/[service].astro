@@ -1,0 +1,167 @@
+---
+import { services } from '../../data/services';
+import Layout from '../../layouts/Layout.astro';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+
+export function getStaticPaths() {
+  return services.map((serviceItem) => ({
+    params: { service: serviceItem.service },
+    props: { serviceData: serviceItem }
+  }));
+}
+
+const { serviceData } = Astro.props;
+---
+
+<Layout>
+  <!-- Hero Section -->
+  <section class="relative h-[50vh] min-h-80 w-full overflow-hidden bg-gradient-to-br from-primary via-secondary to-accent">
+    <div class="absolute inset-0 bg-black/40"></div>
+    
+    <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-8">
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-background mb-4">
+        {serviceData.title}
+      </h1>
+    </div>
+  </section>
+
+  <!-- Description Section -->
+  <section class="wrapper py-12">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-lg sm:text-xl text-muted-foreground leading-relaxed text-center">
+        {serviceData.description}
+      </p>
+    </div>
+  </section>
+
+  <!-- Packages Section (for Birthday Parties) -->
+  {serviceData.packages && (
+    <section class="wrapper py-12 bg-muted/30">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12">
+          Party Packages
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {serviceData.packages.map((pkg) => (
+            <Card className="flex flex-col">
+              <CardHeader>
+                <CardTitle className="text-2xl">{pkg.name}</CardTitle>
+                <CardDescription>{pkg.description}</CardDescription>
+              </CardHeader>
+              <CardContent className="flex-1">
+                <div class="text-4xl font-bold text-primary mb-6">
+                  ${pkg.price}
+                </div>
+                {pkg.details && (
+                  <ul class="space-y-2">
+                    {pkg.details.map((detail) => (
+                      <li class="flex items-start">
+                        <span class="text-accent mr-2">✓</span>
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Sessions Section (for Camps and Open Gym) -->
+  {serviceData.sessions && (
+    <section class="wrapper py-12 bg-muted/30">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12">
+          {serviceData.service === 'camps' ? 'Available Camps & Fun Days' : 'Open Gym Sessions'}
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {serviceData.sessions.map((session) => (
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-xl">{session.name}</CardTitle>
+                <CardDescription>{session.ageRange}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                {session.type && (
+                  <p class="text-muted-foreground mb-2">{session.type}</p>
+                )}
+                {session.price && (
+                  <p class="text-2xl font-bold text-primary">${session.price}/session</p>
+                )}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        
+        {serviceData.pricing && (
+          <div class="mt-8 text-center">
+            <p class="text-xl font-semibold text-foreground">{serviceData.pricing}</p>
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+
+  <!-- Features Section -->
+  {serviceData.features && (
+    <section class="wrapper py-12">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-8">
+          What's Included
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {serviceData.features.map((feature) => (
+            <div class="flex items-start p-4 bg-card rounded-lg border">
+              <span class="text-accent text-xl mr-3">✓</span>
+              <span class="text-foreground">{feature}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Additional Info & CTA Section -->
+  <section class="wrapper py-12 bg-muted/30">
+    <div class="max-w-4xl mx-auto">
+      {serviceData.additionalInfo && (
+        <div class="mb-8 bg-primary/10 border border-primary/20 rounded-lg p-6">
+          <h3 class="text-xl font-bold mb-4">Important Information</h3>
+          <ul class="space-y-2 text-muted-foreground">
+            {serviceData.additionalInfo.map((info) => (
+              <li class="flex items-start">
+                <span class="mr-2">•</span>
+                <span>{info}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {serviceData.calendarLink && (
+        <div class="text-center">
+          <h3 class="text-2xl font-bold mb-6">Ready to Book?</h3>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-accent hover:bg-accent/90">
+              <a href={serviceData.calendarLink} target="_blank" rel="noopener noreferrer">
+                View Calendar & Book Now
+              </a>
+            </Button>
+            <Button size="lg" variant="outline">
+              <a href="/sign-up">
+                Contact Us
+              </a>
+            </Button>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+</Layout>

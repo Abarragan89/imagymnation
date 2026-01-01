@@ -46,9 +46,9 @@ export default function DesktopNavLinks({ currentPath, pencilUnderline }: Deskto
 
             <NavigationMenuItem>
                 <NavigationMenuLink asChild className="text-lg">
-                    <a href="/birthday-parties" className="relative">
+                    <a href="/services/birthday-parties" className="relative">
                         Parties
-                        {currentPath === '/birthday-parties' && pencilUnderline && (
+                        {currentPath === '/services/birthday-parties' && pencilUnderline && (
                             <img
                                 src={pencilUnderline.src}
                                 alt='pencil underline'
@@ -61,9 +61,9 @@ export default function DesktopNavLinks({ currentPath, pencilUnderline }: Deskto
 
             <NavigationMenuItem>
                 <NavigationMenuLink asChild className="text-lg">
-                    <a href="/camps" className="relative">
+                    <a href="/services/camps" className="relative">
                         Camps
-                        {currentPath === '/camps' && pencilUnderline && (
+                        {currentPath === '/services/camps' && pencilUnderline && (
                             <img
                                 src={pencilUnderline.src}
                                 alt='pencil underline'

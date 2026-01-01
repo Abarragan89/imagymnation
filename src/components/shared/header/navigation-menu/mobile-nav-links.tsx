@@ -19,7 +19,10 @@ export default function MobileNavLinks({ currentPath }: MobileNavLinksProps) {
                             <NavigationMenuLink asChild className="w-full block rounded-none text-md">
                                 <a
                                     href={classItem.href}
-                                    className="w-full transition-colors pl-6 hover:bg-secondary"
+                                    className={`w-full transition-colors pl-6 hover:bg-secondary
+                                        ${currentPath === classItem.href ? 'bg-secondary/80'
+                                        : ''
+                                    }`}
                                 >
                                     {classItem.title}
                                 </a>
@@ -38,7 +41,7 @@ export default function MobileNavLinks({ currentPath }: MobileNavLinksProps) {
                     <NavigationMenuItem className="w-full block">
                         <NavigationMenuLink asChild className="w-full block rounded-none hover:bg-secondary text-md">
                             <a
-                                href="/birthday-parties"
+                                href="/services/birthday-parties"
                                 className={`w-full block py-2 pl-6 ${currentPath === '/birthday-parties'
                                     ? 'bg-secondary/80'
                                     : 'hover:bg-secondary/80'

@@ -2,7 +2,7 @@
 export const navigationData = {
     mainLinks: [
         { label: "Home", href: "/", key: "home" },
-        { label: "Parties", href: "/birthday-parties", key: "parties" },
+        { label: "Parties", href: "/services/birthday-parties", key: "parties" },
         // { label: "Coaches", href: "/coaches", key: "coaches" },
     ],
     classes: [
@@ -42,6 +42,6 @@ export const navigationData = {
         href: "/sign-up"
     },
     additionalServices: [
-        { label: "Camps", href: "/camps" },
+        { label: "Camps", href: "/services/camps" },
     ]
 };
