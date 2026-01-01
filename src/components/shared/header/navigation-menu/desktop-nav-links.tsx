@@ -2,22 +2,24 @@ import { Button } from '@/components/ui/button'
 import { NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger } from '@/components/ui/navigation-menu'
 import React from 'react'
 import { navigationData } from '@/data/navigation'
+import type { ImageMetadata } from "astro";
 
 interface DesktopNavLinksProps {
     currentPath: string;
+    pencilUnderline?: ImageMetadata;
 }
 
-export default function DesktopNavLinks({ currentPath }: DesktopNavLinksProps) {
+export default function DesktopNavLinks({ currentPath, pencilUnderline }: DesktopNavLinksProps) {
     return (
         <>
             <NavigationMenuItem>
                 <NavigationMenuLink asChild className="text-lg">
                     <a href="/" className="relative">
                         Home
-                        {currentPath === '/' && (
+                        {currentPath === '/' && pencilUnderline && (
                             <img
-                                src="/images/link-underline.png"
-                                alt=""
+                                src={pencilUnderline.src}
+                                alt='pencil underline'
                                 className="absolute -bottom-1 left-0 w-full h-4 object-cover"
                             />
                         )}
@@ -46,10 +48,10 @@ export default function DesktopNavLinks({ currentPath }: DesktopNavLinksProps) {
                 <NavigationMenuLink asChild className="text-lg">
                     <a href="/birthday-parties" className="relative">
                         Parties
-                        {currentPath === '/birthday-parties' && (
+                        {currentPath === '/birthday-parties' && pencilUnderline && (
                             <img
-                                src="/images/link-underline.png"
-                                alt=""
+                                src={pencilUnderline.src}
+                                alt='pencil underline'
                                 className="absolute -bottom-1 left-0 w-full h-4 object-cover"
                             />
                         )}
@@ -61,10 +63,10 @@ export default function DesktopNavLinks({ currentPath }: DesktopNavLinksProps) {
                 <NavigationMenuLink asChild className="text-lg">
                     <a href="/camps" className="relative">
                         Camps
-                        {currentPath === '/camps' && (
+                        {currentPath === '/camps' && pencilUnderline && (
                             <img
-                                src="/images/link-underline.png"
-                                alt=""
+                                src={pencilUnderline.src}
+                                alt='pencil underline'
                                 className="absolute -bottom-1 left-0 w-full h-4 object-cover"
                             />
                         )}

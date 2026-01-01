@@ -1,0 +1,15 @@
+---
+import { classes } from '../../data/classes';
+
+export function getStaticPaths() {
+  return classes.map((classItem) => ({
+    params: { class: classItem.class },
+    props: { classData: classItem }
+  }));
+}
+
+const { classData } = Astro.props;
+---
+
+<h1>Hey there</h1>
+<p>{classData.title}</p>

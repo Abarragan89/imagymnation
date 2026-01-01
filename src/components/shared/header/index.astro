@@ -1,10 +1,17 @@
 ---
 import Navigation from "./navigation-menu";
+import {Image} from "astro:assets"
+import headerLogo from "../../../images/header-logo.png";
+import pencilUnderline from "../../../images/link-underline.png";
 ---
 
 <header class='flex-between px-4 py-1'>
     <a href="/">
-        <img src="images/header-logo.png" alt="Imagymnation Logo" class="h-16 w-36 relative"/>
+        <Image src={headerLogo} alt="Imagymnation Logo" class="h-16 w-36 relative"/>
     </a>
-    <Navigation client:load currentPath={Astro.url.pathname} />
+    <Navigation 
+        client:load 
+        currentPath={Astro.url.pathname} 
+        pencilUnderline={pencilUnderline}
+    />
 </header>

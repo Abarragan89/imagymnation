@@ -1,6 +1,5 @@
 import { NavigationMenuItem, NavigationMenuLink } from '@/components/ui/navigation-menu'
 import { navigationData } from '@/data/navigation'
-import { Home } from 'lucide-react';
 
 interface MobileNavLinksProps {
     currentPath: string;
@@ -50,19 +49,6 @@ export default function MobileNavLinks({ currentPath }: MobileNavLinksProps) {
                         </NavigationMenuLink>
                     </NavigationMenuItem>
 
-                    {/* <NavigationMenuItem className="w-full block">
-                        <NavigationMenuLink asChild className="w-full block">
-                            <a
-                                href="/coaches"
-                                className={`w-full block py-2 px-3 rounded-md transition-colors ${currentPath === '/coaches'
-                                    ? 'bg-primary/10 text-primary font-medium'
-                                    : 'hover:bg-muted'
-                                    }`}
-                            >
-                                Coaches
-                            </a>
-                        </NavigationMenuLink>
-                    </NavigationMenuItem> */}
 
                     {navigationData.additionalServices.map((service) => (
                         <NavigationMenuItem key={service.href} className="w-full block">

@@ -6,6 +6,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { Image } from "astro:assets";
+import funAndSafeImg from "../../../images/why-us-photos/fun-and-safe.png";
+import healthImg from "../../../images/why-us-photos/health.png";
+import expertCoachesImg from "../../../images/why-us-photos/expert-coaches.png";
+import familyFriendlyImg from "../../../images/why-us-photos/family-friendly.png";
 
 const cards = [
   {
@@ -13,28 +18,28 @@ const cards = [
     title: "Safe & Fun Environment",
     description: "Our state-of-the-art facility provides a secure space where children can explore, learn, and play with confidence while having an absolute blast!",
     action: "Explore Our Facility",
-    imgSrc: "images/why-us-photos/fun-and-safe.png"
+    imgSrc: funAndSafeImg
   },
   {
     id: 2,
     title: "Healthy Body Development", 
     description: "Build strength, flexibility, and coordination through expertly designed programs that promote overall physical wellness and lifelong healthy habits.",
     action: "View Health Benefits",
-    imgSrc: "images/why-us-photos/health.png"
+    imgSrc: healthImg
   },
   {
     id: 3,
     title: "Expert Coaching Team",
     description: "Our certified instructors bring years of experience and passion, providing personalized attention to help each child reach their full potential.",
     action: "Meet Our Coaches",
-    imgSrc: "images/why-us-photos/expert-coaches.png"
+    imgSrc: expertCoachesImg
   },
   {
     id: 4,
     title: "Family-Friendly Community",
     description: "Join a welcoming community where families connect, support each other, and celebrate every milestone together in your child's gymnastics journey.",
     action: "Join Our Community",
-    imgSrc: "images/why-us-photos/family-friendly.png"
+    imgSrc: familyFriendlyImg
   }
 ];
 ---
@@ -43,9 +48,10 @@ const cards = [
   {cards.map((card) => (
     <Card className="gap-y-5 animate-on-scroll max-w-106.25 mx-auto" key={card.id}>
       <CardHeader>
-        <img 
+        <Image 
           src={card.imgSrc}
           class="w-full h-48 bg-red-500 rounded-lg mb-4 flex items-center justify-center" 
+          alt={card.title}
           />
         <CardTitle className="text-xl text-secondary font-bold">{card.title}</CardTitle>
       </CardHeader>
