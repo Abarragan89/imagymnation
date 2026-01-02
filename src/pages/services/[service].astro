@@ -3,6 +3,12 @@ import { services } from '../../data/services';
 import Layout from '../../layouts/Layout.astro';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Image } from 'astro:assets';
+
+// Import images for optimization
+import birthdaysImg from '../../images/classes-headers/Birthdays.png';
+import campsImg from '../../images/classes-headers/Camps.png';
+import openGymImg from '../../images/classes-headers/Open-Gym.png';
 
 export function getStaticPaths() {
   return services.map((serviceItem) => ({
@@ -12,11 +18,25 @@ export function getStaticPaths() {
 }
 
 const { serviceData } = Astro.props;
+
+// Map service types to imported images
+const imageMap = {
+  'birthday-parties': birthdaysImg,
+  'camps': campsImg,
+  'open-gym': openGymImg,
+};
+
+const heroImage = imageMap[serviceData.service as keyof typeof imageMap];
 ---
 
 <Layout>
   <!-- Hero Section -->
-  <section class="relative h-[50vh] min-h-80 w-full overflow-hidden bg-gradient-to-br from-primary via-secondary to-accent">
+  <section class="relative h-[50vh] min-h-80 w-full overflow-hidden">
+    <Image 
+      src={heroImage} 
+      alt={serviceData.title} 
+      class="absolute inset-0 w-full h-full object-cover"
+    />
     <div class="absolute inset-0 bg-black/40"></div>
     
     <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-8">
@@ -51,7 +71,7 @@ const { serviceData } = Astro.props;
                 <CardDescription>{pkg.description}</CardDescription>
               </CardHeader>
               <CardContent className="flex-1">
-                <div class="text-4xl font-bold text-primary mb-6">
+                <div class="text-4xl font-bold text-secondary mb-6">
                   ${pkg.price}
                 </div>
                 {pkg.details && (
@@ -149,12 +169,12 @@ const { serviceData } = Astro.props;
         <div class="text-center">
           <h3 class="text-2xl font-bold mb-6">Ready to Book?</h3>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-accent hover:bg-accent/90">
+            <Button size="lg" variant="secondary">
               <a href={serviceData.calendarLink} target="_blank" rel="noopener noreferrer">
                 View Calendar & Book Now
               </a>
             </Button>
-            <Button size="lg" variant="outline">
+            <Button size="lg" variant="accent">
               <a href="/sign-up">
                 Contact Us
               </a>

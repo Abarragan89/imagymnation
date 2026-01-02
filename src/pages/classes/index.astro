@@ -10,6 +10,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import AllClasses from '../../images/classes-headers/All-Classes.png';
+import { Image } from 'astro:assets';
 
 // Process all classes to group their schedules
 const allClassesData = classes.map((classData) => {
@@ -35,7 +37,12 @@ const allClassesData = classes.map((classData) => {
 
 <Layout>
   <!-- Hero Section -->
-  <section class="relative h-[50vh] min-h-80 w-full overflow-hidden bg-gradient-to-br from-primary via-secondary to-accent">
+  <section class="relative h-[50vh] min-h-80 w-full overflow-hidden">
+    <Image 
+      src={AllClasses} 
+      alt="All Classes" 
+      class="absolute inset-0 w-full h-full object-cover"
+    />
     <div class="absolute inset-0 bg-black/40"></div>
     
     <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-8">

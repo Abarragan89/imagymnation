@@ -25,7 +25,7 @@ export const classes: ClassCategory[] = [
         title: 'Baby Classes',
         description: 'Gentle introduction to movement for our youngest athletes. Parent participation classes designed to promote motor development, sensory exploration, and parent-child bonding.',
         ageRange: '0-2 years',
-        image: '/images/classes/baby-classes.jpg',
+        image: '/src/images/classes-headers/Babies.png',
         schedules: [
             // Busy Babies (0-1 yr) - FREE
             { name: 'Busy Babies', registrationLink: 'https://app.jackrabbitclass.com/reg.asp?id=507391&hc=&initEmpty=&hdrColor=&WL=0&preLoadClassID=20293338&loc=', description: 'Infant/Parent participation class. FREE monthly tuition', day: 'Monday', time: '9:15am-9:45am', ageRange: '0-1 yr', instructor: 'Jordyn Parra', price: 0 },
@@ -72,7 +72,7 @@ export const classes: ClassCategory[] = [
         title: 'Kindergym',
         description: 'Fun developmental classes for toddlers and preschoolers. Our Kindergym program builds confidence, coordination, and social skills through age-appropriate gymnastics activities.',
         ageRange: '3-5 years',
-        image: '/images/classes/kindergym.jpg',
+        image: '/src/images/classes-headers/Kindergym.png',
         schedules: [
             // Tumble Tots (3 yrs)
             { name: 'Tumble Tots', description: 'Gymnastics for independent 3 yr. olds!', day: 'Monday', time: '9:45am-10:30am', ageRange: '3-4 yrs', instructor: 'Jordyn Parra', price: 90, registrationLink: 'https://app.jackrabbitclass.com/reg.asp?id=507391&hc=&initEmpty=&hdrColor=&WL=0&preLoadClassID=20293274&loc=' },
@@ -148,7 +148,7 @@ export const classes: ClassCategory[] = [
         title: 'Gymnastics (6+)',
         description: 'Structured gymnastics training for school-age children and teens. Progressive skill development across all apparatus with multiple levels from beginner to advanced.',
         ageRange: '6-12 years',
-        image: '/images/classes/gymnastics.jpg',
+        image: '/src/images/classes-headers/Gymnastics-6+.png',
         schedules: [
             // Beginner (Sparkler) 6+
             { name: 'Beginner 6+', description: 'Beginner gymnastics for 6 yrs. & up!', day: 'Monday', time: '3:30pm-4:30pm', ageRange: '6-12 yrs', instructor: 'Jordyn Parra', price: 105, registrationLink: 'https://app.jackrabbitclass.com/reg.asp?id=507391&hc=&initEmpty=&hdrColor=&WL=0&preLoadClassID=18481956&loc=' },
@@ -211,7 +211,7 @@ export const classes: ClassCategory[] = [
         title: 'Ninjas',
         description: 'Obstacle course training inspired by ninja warrior challenges. High-energy classes that build strength, agility, and problem-solving skills through fun obstacle courses.',
         ageRange: '5-12 years',
-        image: '/images/classes/ninjas.jpg',
+        image: '/src/images/classes-headers/Ninjas.png',
         schedules: [
             // Beginner NINJAS (5+)
             { name: 'Ninjas Beg/Int 5+', description: 'Ninja warrior obstacle training', day: 'Wednesday', time: '4:30pm-5:30pm', ageRange: '5-12 yrs', instructor: 'Chris Fenerty', price: 105, status: 'waitlist', registrationLink: 'https://app.jackrabbitclass.com/reg.asp?id=507391&hc=&initEmpty=&hdrColor=&WL=1&preLoadClassID=16262950&loc=' },
@@ -227,7 +227,7 @@ export const classes: ClassCategory[] = [
         title: 'Open Gym',
         description: 'Supervised free play time for all ages to practice skills and explore our equipment. Great for families and students who want extra practice time in a fun, safe environment.',
         ageRange: 'All ages',
-        image: '/images/classes/open-gym.jpg',
+        image: '/src/images/classes-headers/Open Gym.png',
         schedules: [
             // Open gym schedules would go here if available from the website
             // The website has a separate page for open gym that wasn't in the data

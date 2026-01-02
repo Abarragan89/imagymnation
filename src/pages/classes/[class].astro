@@ -2,6 +2,7 @@
 import { classes } from '../../data/classes';
 import Layout from '../../layouts/Layout.astro';
 import { Button } from '@/components/ui/button';
+import { Image } from 'astro:assets';
 import {
   Table,
   TableBody,
@@ -11,6 +12,13 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
+// Import images for optimization
+import babiesImg from '../../images/classes-headers/Babies.png';
+import kindergymImg from '../../images/classes-headers/Kindergym.png';
+import gymnasticsImg from '../../images/classes-headers/Gymnastics-6+.png';
+import ninjasImg from '../../images/classes-headers/Ninjas.png';
+import openGymImg from '../../images/classes-headers/Open-Gym.png';
+
 export function getStaticPaths() {
   return classes.map((classItem) => ({
     params: { class: classItem.class },
@@ -19,6 +27,17 @@ export function getStaticPaths() {
 }
 
 const { classData } = Astro.props;
+
+// Map class types to imported images
+const imageMap = {
+  'baby': babiesImg,
+  'kindergym': kindergymImg,
+  'gymnastics': gymnasticsImg,
+  'ninjas': ninjasImg,
+  'open-gym': openGymImg
+};
+
+const heroImage = imageMap[classData.class as keyof typeof imageMap];
 
 // Group schedules by age range and description to create subclasses
 const groupedSchedules = classData.schedules.reduce((acc, schedule) => {
@@ -39,10 +58,13 @@ const subclasses = Object.values(groupedSchedules);
 
 <Layout>
   <!-- Hero Section with Image -->
-  <section class="relative h-[50vh] min-h-80 w-full overflow-hidden bg-gradient-to-br from-primary via-secondary to-accent">
+  <section class="relative h-[50vh] min-h-80 w-full overflow-hidden">
+    <Image 
+      src={heroImage} 
+      alt={classData.title} 
+      class="absolute inset-0 w-full h-full object-cover"
+    />
     <div class="absolute inset-0 bg-black/40"></div>
-    <!-- You can replace this with actual image when available -->
-    <!-- <img src={classData.image} alt={classData.title} class="absolute inset-0 w-full h-full object-cover" /> -->
     
     <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-8">
       <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-background mb-4">
