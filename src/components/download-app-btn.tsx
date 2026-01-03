@@ -1,7 +1,6 @@
-import React from 'react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog'
 import { Button } from './ui/button'
-
+const BASE_URL = import.meta.env.BASE_URL
 export default function DownloadAppButton() {
     return (
         <Dialog>
@@ -18,7 +17,7 @@ export default function DownloadAppButton() {
                     <DialogTitle className="text-2xl font-bold mb-2">Scan the QR Code to Download</DialogTitle>
                 </DialogHeader>
                 <div className="flex-center">
-                    <img src="/app-qr-code.png" />
+                    <img src={`${BASE_URL}/app-qr-code.png`} alt="QR Code to Download App" />
                 </div>
             </DialogContent>
         </Dialog>

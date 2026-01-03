@@ -8,6 +8,7 @@ import {
 import MobileNavLinks from "./mobile-nav-links"
 import { Home, Menu } from "lucide-react";
 import { NavigationMenu, NavigationMenuList } from "@/components/ui/navigation-menu";
+const BASE_URL = import.meta.env.BASE_URL
 
 export default function MobileNav({ currentPath }: { currentPath: string }) {
 
@@ -20,7 +21,7 @@ export default function MobileNav({ currentPath }: { currentPath: string }) {
                 <SheetHeader>
                     <SheetTitle>Menu</SheetTitle>
                 </SheetHeader>
-                <a href="/" className={` pl-3
+                <a href={BASE_URL} className={` pl-3
                     ${currentPath === '/' ? 'text-secondary' : 'hover:text-secondary'}
                 `}>
                     <Home size={23} />
