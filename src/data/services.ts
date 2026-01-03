@@ -16,7 +16,6 @@ export interface Service {
     service: string; // URL slug
     title: string;
     description: string;
-    image: string;
     packages?: ServicePackage[];
     sessions?: ServiceSession[];
     features?: string[];
@@ -30,7 +29,6 @@ export const services: Service[] = [
         service: 'birthday-parties',
         title: 'Gym Rentals & Birthday Parties',
         description: 'Looking for the perfect place for a Birthday Party, Team Party or just an awesome Playdate? Imagymnation offers 2 hour PRIVATE GYM RENTALS in our stimulating, clean and colorful facility!',
-        image: '/images/services/birthday-parties.jpg',
         packages: [
             {
                 name: 'Small Party',
@@ -70,7 +68,6 @@ export const services: Service[] = [
         service: 'camps',
         title: 'Camps & No School Fun Days',
         description: "Imagymnation's Camps and Fun Days are the perfect place for your kids to explore, build strength, develop body awareness and create new friendships! Each day is filled with exciting activities including gymnastics, open gym, arts & crafts, group games, & themed events!",
-        image: '/images/services/camps.jpg',
         features: [
             'Gymnastics instruction and practice',
             'Open gym play time',
@@ -118,7 +115,6 @@ export const services: Service[] = [
         service: 'open-gym',
         title: 'Open Gym',
         description: 'Imagymnation Open Gym is the perfect place for your kids to explore, build strength, develop body awareness and create new friendships! In our stimulating, clean and colorful facility, your children will be able to experience the joy of jumping on trampolines, climbing ropes and ladders, crawling through tunnels and mazes, and much more!',
-        image: '/images/services/open-gym.jpg',
         sessions: [
             {
                 name: 'Lil Explorers',
