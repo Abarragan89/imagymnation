@@ -3,10 +3,11 @@ import Navigation from "./navigation-menu";
 import {Image} from "astro:assets"
 import headerLogo from "../../../images/header-logo.png";
 import pencilUnderline from "../../../images/link-underline.png";
+const BASE_URL = import.meta.env.BASE_URL;
 ---
 
 <header class='flex-between px-4 py-1'>
-    <a href="/">
+    <a href={BASE_URL}>
         <Image src={headerLogo} alt="Imagymnation Logo" class="h-16 w-36 relative"/>
     </a>
     <Navigation 

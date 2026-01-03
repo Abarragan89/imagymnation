@@ -1,5 +1,6 @@
 ---
 import { Button } from '@/components/ui/button'
+const BASE_URL = import.meta.env.BASE_URL;
 ---
 <section class="relative mt-14">
     <!-- Sunset Gradient Background -->
@@ -11,7 +12,7 @@ import { Button } from '@/components/ui/button'
             Start Your Journey Today!
         </h2>
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="/sign-up">
+            <a href={`${BASE_URL}sign-up`}>
                 <Button size="lg" variant="accent" className="text-lg">
                         Register Now
                 </Button>

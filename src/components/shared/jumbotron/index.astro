@@ -34,14 +34,14 @@ import { Button } from '@/components/ui/button'
 
         <div class="flex flex-col gap-y-8 items-center justify-center max-w-90">
             <div class="flex-start gap-x-5 mt-6">
-                <a href="/classes" class="inline-block">
+                <a href={`${BASE_URL}classes`} class="inline-block">
                     <Button size="lg" className="text-md  sm:text-lg">
                         View Classes
                     </Button>
                 </a>
                 <DownloadAppButton client:load/>
             </div>
-            <a href="/services/birthday-parties" class="inline-block">
+            <a href={`${BASE_URL}services/birthday-parties`} class="inline-block">
                 <Button size="lg" variant="accent" className="text-md sm:text-lg border border-white/40">          
                     <span>🎂 Book a <span>Birthday</span> Party!</span>
                 </Button>
