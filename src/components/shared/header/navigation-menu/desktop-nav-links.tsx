@@ -1,4 +1,3 @@
-import { Button } from '@/components/ui/button'
 import { NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger } from '@/components/ui/navigation-menu'
 import React from 'react'
 import { navigationData } from '@/data/navigation'

@@ -70,7 +70,7 @@ const allClassesData = classes.map((classData) => {
             <p class="text-lg text-foreground leading-relaxed max-w-4xl">
               {classData.description}
             </p>
-            <a href={`${BASE_URL}classes/${classData.class}`} class="inline-block mt-4">
+            <a href={`${BASE_URL}/classes/${classData.class}`} class="inline-block mt-4">
               <Button variant="secondary" size="sm">
                 View Full {classData.title} Page →
               </Button>
@@ -117,7 +117,7 @@ const allClassesData = classes.map((classData) => {
                       {subclass.schedules.map((schedule, scheduleIdx) => (
                         <TableRow key={scheduleIdx} className={schedule.status === 'waitlist' ? 'bg-destructive/5' : ''}>
                           <TableCell className="">
-                            <a href={schedule.registrationLink || `${BASE_URL}sign-up`} class="inline-block">
+                            <a href={schedule.registrationLink || `https://app.jackrabbitclass.com/regv2.asp?id=507391`} class="inline-block" rel="noopener noreferrer" target="_blank">
                               <Button 
                                 size="sm" 
                                 variant={schedule.status === 'waitlist' ? 'outline' : 'accent'}

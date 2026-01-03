@@ -131,7 +131,7 @@ const subclasses = Object.values(groupedSchedules);
                   {subclass.schedules.map((schedule, scheduleIdx) => (
                     <TableRow key={scheduleIdx} className={schedule.status === 'waitlist' ? 'bg-destructive/5' : ''}>
                       <TableCell>
-                        <a href={schedule.registrationLink || `${BASE_URL}sign-up`} class="inline-block">
+                        <a href={schedule.registrationLink || `https://app.jackrabbitclass.com/regv2.asp?id=507391`} class="inline-block" rel="noopener noreferrer" target="_blank">
                           <Button 
                             size="sm" 
                             variant={schedule.status === 'waitlist' ? 'outline' : 'accent'}
