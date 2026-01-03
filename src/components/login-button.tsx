@@ -8,11 +8,11 @@ import {
 } from "@/components/ui/dialog"
 import { Button } from "./ui/button"
 
-export default function LoginButton() {
+export default function LoginButton({isRounded = false}: {isRounded?: boolean}) {
     return (
         <Dialog>
             <DialogTrigger className="w-full">
-                <Button className="text-md w-full rounded-none" variant={"accent"}>Login/Signup</Button>
+                <Button className={`text-md w-full ${isRounded ? 'rounded-md' : 'rounded-none'}`} variant={"accent"}>Login/Signup</Button>
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>

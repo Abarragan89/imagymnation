@@ -1,11 +1,12 @@
 ---
+import DownloadAppButton from '@/components/download-app-btn'
 import { Button } from '@/components/ui/button'
 ---
 <section
     class="
     relative
-    h-[58vh]
-    sm:h-[70vh]
+    h-[53vh]
+    sm:h-[65vh]
     min-h-105
     w-full
     shadow-md
@@ -24,25 +25,23 @@ import { Button } from '@/components/ui/button'
     />
     <!-- Content -->
     <div class="relative z-10 px-8 pt-10">
-        <h1 class="text-5xl sm:text-6xl max-w-70 font-bold text-background">
+        <h1 class="text-5xl sm:text-6xl max-w-90 font-bold text-background">
             Fun, Safe <span class="text-primary">Gymnastics</span> for Kids
         </h1>
-        <p class="mt-4 text-lg sm:text-xl text-background max-w-80">
+        <p class="mt-4 text-lg sm:text-xl text-background max-w-90">
            Classes for ages 3 months and up, Birthday Parties, and more!
         </p>
 
-        <div class="flex flex-col gap-y-8 items-center justify-center max-w-70">
-            <div class="flex-start gap-x-4">
-                <Button size="lg" className="text-md  sm:text-lg mt-6">
+        <div class="flex flex-col gap-y-8 items-center justify-center max-w-90">
+            <div class="flex-start gap-x-2 mt-6">
+                <Button size="lg" className="text-md  sm:text-lg">
                     <a href="/classes">
                         View Classes
                     </a>
                 </Button>
-                <Button size="lg" variant="secondary" className="mt-6 text-md sm:text-lg">
-                    Free Trial!
-                </Button>
+                <DownloadAppButton />
             </div>
-            <Button size="lg" variant="accent" className="flex flex-col text-md sm:text-lg border border-border/40">          
+            <Button size="lg" variant="accent" className="text-md sm:text-lg border border-white/40">          
                 <a href="/services/birthday-parties">
                     <span>🎂 Book a <span>Birthday</span> Party!</span>
                 </a>

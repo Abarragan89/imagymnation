@@ -76,7 +76,7 @@ export default function DesktopNavLinks({ currentPath, pencilUnderline }: Deskto
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-                <LoginButton />
+                <LoginButton isRounded={true} />
             </NavigationMenuItem>
         </>
     )
