@@ -3,6 +3,7 @@ import { NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, Navigati
 import React from 'react'
 import { navigationData } from '@/data/navigation'
 import type { ImageMetadata } from "astro";
+import LoginButton from '@/components/login-button';
 
 interface DesktopNavLinksProps {
     currentPath: string;
@@ -75,11 +76,7 @@ export default function DesktopNavLinks({ currentPath, pencilUnderline }: Deskto
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-                <NavigationMenuLink asChild className="text-md">
-                    <Button asChild className="ml-3" variant="accent">
-                        <a href="/sign-up">Login/Signup</a>
-                    </Button>
-                </NavigationMenuLink>
+                <LoginButton />
             </NavigationMenuItem>
         </>
     )

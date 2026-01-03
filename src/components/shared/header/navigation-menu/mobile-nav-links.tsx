@@ -1,3 +1,4 @@
+import LoginButton from '@/components/login-button';
 import { NavigationMenuItem, NavigationMenuLink } from '@/components/ui/navigation-menu'
 import { navigationData } from '@/data/navigation'
 
@@ -21,8 +22,8 @@ export default function MobileNavLinks({ currentPath }: MobileNavLinksProps) {
                                     href={classItem.href}
                                     className={`w-full transition-colors pl-6 hover:bg-secondary
                                         ${currentPath === classItem.href ? 'bg-secondary/80'
-                                        : ''
-                                    }`}
+                                            : ''
+                                        }`}
                                 >
                                     {classItem.title}
                                 </a>
@@ -65,6 +66,10 @@ export default function MobileNavLinks({ currentPath }: MobileNavLinksProps) {
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                     ))}
+
+                    <div>
+                        <LoginButton />
+                    </div>
                 </div>
             </div>
         </div>

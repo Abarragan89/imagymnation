@@ -4,8 +4,8 @@ import { Button } from '@/components/ui/button'
 <section
     class="
     relative
-    h-[53vh]
-    sm:h-[73vh]
+    h-[58vh]
+    sm:h-[70vh]
     min-h-105
     w-full
     shadow-md
@@ -28,20 +28,24 @@ import { Button } from '@/components/ui/button'
             Fun, Safe <span class="text-primary">Gymnastics</span> for Kids
         </h1>
         <p class="mt-4 text-lg sm:text-xl text-background max-w-80">
-           Classes for ages 6 months to 12 years, Birthday Parties, and more!
+           Classes for ages 3 months and up, Birthday Parties, and more!
         </p>
 
         <div class="flex flex-col gap-y-8 items-center justify-center max-w-70">
             <div class="flex-start gap-x-4">
                 <Button size="lg" className="text-md  sm:text-lg mt-6">
-                    View Classes
+                    <a href="/classes">
+                        View Classes
+                    </a>
                 </Button>
                 <Button size="lg" variant="secondary" className="mt-6 text-md sm:text-lg">
                     Free Trial!
                 </Button>
             </div>
-            <Button size="lg" variant="accent" className="flex flex-col text-md sm:text-lg border border-border/40">
+            <Button size="lg" variant="accent" className="flex flex-col text-md sm:text-lg border border-border/40">          
+                <a href="/services/birthday-parties">
                     <span>🎂 Book a <span>Birthday</span> Party!</span>
+                </a>
             </Button>
         </div>
     </div>
