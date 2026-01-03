@@ -1,6 +1,7 @@
 import LoginButton from '@/components/login-button';
 import { NavigationMenuItem, NavigationMenuLink } from '@/components/ui/navigation-menu'
 import { navigationData } from '@/data/navigation'
+const BASE_URL = import.meta.env.BASE_URL
 
 interface MobileNavLinksProps {
     currentPath: string;
@@ -42,8 +43,8 @@ export default function MobileNavLinks({ currentPath }: MobileNavLinksProps) {
                     <NavigationMenuItem className="w-full block">
                         <NavigationMenuLink asChild className="w-full block rounded-none hover:bg-secondary text-md">
                             <a
-                                href="/services/birthday-parties"
-                                className={`w-full block py-2 pl-6 ${currentPath === '/birthday-parties'
+                                href={`${BASE_URL}/services/birthday-parties`}
+                                className={`w-full block py-2 pl-6 ${currentPath === `${BASE_URL}/services/birthday-parties`
                                     ? 'bg-secondary/80'
                                     : 'hover:bg-secondary/80'
                                     }`}
