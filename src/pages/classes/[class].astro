@@ -12,14 +12,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-const BASE_URL = import.meta.env.BASE_URL;
-
 // Import images for optimization
 import babiesImg from '../../images/classes-headers/Babies.png';
 import kindergymImg from '../../images/classes-headers/Kindergym.png';
 import gymnasticsImg from '../../images/classes-headers/Gymnastics-6+.png';
 import ninjasImg from '../../images/classes-headers/Ninjas.png';
 import openGymImg from '../../images/classes-headers/Open-Gym.png';
+
+const BASE_URL = import.meta.env.BASE_URL;
 
 export function getStaticPaths() {
   return classes.map((classItem) => ({
