@@ -3,6 +3,7 @@ import React from 'react'
 import { navigationData } from '@/data/navigation'
 import type { ImageMetadata } from "astro";
 import LoginButton from '@/components/login-button';
+const BASE_URL = import.meta.env.BASE_URL
 
 interface DesktopNavLinksProps {
     currentPath: string;
@@ -14,7 +15,7 @@ export default function DesktopNavLinks({ currentPath, pencilUnderline }: Deskto
         <>
             <NavigationMenuItem>
                 <NavigationMenuLink asChild className="text-lg">
-                    <a href="/" className="relative">
+                    <a href={BASE_URL} className="relative">
                         Home
                         {currentPath === '/' && pencilUnderline && (
                             <img
