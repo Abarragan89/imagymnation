@@ -7,7 +7,7 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://github.com/Abarragan89/imagymnation",
+  site: "https://github.com/Abarragan89",
   base: "/imagymnation/",
   output: "static",
   vite: {
