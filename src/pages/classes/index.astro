@@ -115,15 +115,15 @@ const allClassesData = classes.map((classData) => {
                       {subclass.schedules.map((schedule, scheduleIdx) => (
                         <TableRow key={scheduleIdx} className={schedule.status === 'waitlist' ? 'bg-destructive/5' : ''}>
                           <TableCell className="">
-                            <Button 
-                              size="sm" 
-                              variant={schedule.status === 'waitlist' ? 'outline' : 'accent'}
-                              className={schedule.status === 'waitlist' ? 'border-destructive text-destructive hover:bg-destructive/10' : ''}
-                            >
-                              <a href={schedule.registrationLink || '/sign-up'}>
+                            <a href={schedule.registrationLink || '/sign-up'} class="inline-block">
+                              <Button 
+                                size="sm" 
+                                variant={schedule.status === 'waitlist' ? 'outline' : 'accent'}
+                                className={schedule.status === 'waitlist' ? 'border-destructive text-destructive hover:bg-destructive/10' : ''}
+                              >
                                 {schedule.status === 'waitlist' ? 'Join Waitlist' : 'Register'}
-                              </a>
-                            </Button>
+                              </Button>
+                            </a>
                           </TableCell>
                           <TableCell className="font-medium">{schedule.day}</TableCell>
                           <TableCell>{schedule.time}</TableCell>

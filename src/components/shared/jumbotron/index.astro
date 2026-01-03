@@ -33,19 +33,19 @@ import { Button } from '@/components/ui/button'
         </p>
 
         <div class="flex flex-col gap-y-8 items-center justify-center max-w-90">
-            <div class="flex-start gap-x-2 mt-6">
-                <Button size="lg" className="text-md  sm:text-lg">
-                    <a href="/classes">
+            <div class="flex-start gap-x-5 mt-6">
+                <a href="/classes" class="inline-block">
+                    <Button size="lg" className="text-md  sm:text-lg">
                         View Classes
-                    </a>
-                </Button>
-                <DownloadAppButton />
-            </div>
-            <Button size="lg" variant="accent" className="text-md sm:text-lg border border-white/40">          
-                <a href="/services/birthday-parties">
-                    <span>🎂 Book a <span>Birthday</span> Party!</span>
+                    </Button>
                 </a>
-            </Button>
+                <DownloadAppButton client:load/>
+            </div>
+            <a href="/services/birthday-parties" class="inline-block">
+                <Button size="lg" variant="accent" className="text-md sm:text-lg border border-white/40">          
+                    <span>🎂 Book a <span>Birthday</span> Party!</span>
+                </Button>
+            </a>
         </div>
     </div>
 </section>

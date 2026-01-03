@@ -169,17 +169,17 @@ const heroImage = imageMap[serviceData.service as keyof typeof imageMap];
         <div class="text-center mb-10">
           <h3 class="text-2xl font-bold mb-6">Ready to Book?</h3>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary">
               <a href={serviceData.calendarLink} target="_blank" rel="noopener noreferrer">
-                View Calendar & Book Now
+                <Button size="lg" variant="secondary">
+                    View Calendar & Book Now
+                </Button>
               </a>
-            </Button>
             {serviceData.service === 'birthday-parties' && (
-              <Button size="lg" variant="accent">
                 <a href="https://nebula.wsimg.com/9fff931b648224779e8869c67eac7e1f?AccessKeyId=E939DB3FED0800A88125&disposition=0&alloworigin=1">
-                  Birthday Waiver Form
+                    <Button size="lg" variant="accent">
+                        Birthday Waiver Form
+                    </Button>
                 </a>
-              </Button>
             )}
           </div>
         </div>
