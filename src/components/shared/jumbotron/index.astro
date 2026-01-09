@@ -1,7 +1,8 @@
 ---
 import DownloadAppButton from '@/components/download-app-btn'
 import { Button } from '@/components/ui/button'
-
+import { Image } from 'astro:assets';
+import heroImage from '@/images/hero-image.png';
 ---
 <section
     class="
@@ -12,11 +13,16 @@ import { Button } from '@/components/ui/button'
     w-full
     shadow-md
     overflow-hidden
-    bg-[url('../images/hero-image.png')]
-    bg-cover
-    bg-center
+
 "
 >
+  <Image
+    src={heroImage}
+    alt="Gymnastics hero"
+    class="absolute inset-0 w-full h-full object-cover"
+    loading="eager"
+    fetchpriority="high"
+  />
   <!-- Overlay -->
     <div class="absolute inset-0 bg-linear-to-r 
 

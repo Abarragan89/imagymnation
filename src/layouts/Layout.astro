@@ -2,6 +2,7 @@
 import Footer from "@/components/footer.astro";
 import "../styles/global.css";
 import Header from "@/components/shared/header/index.astro";
+import heroImage from '@/images/hero-image.png';
 ---
 
 <!doctype html>
@@ -9,7 +10,8 @@ import Header from "@/components/shared/header/index.astro";
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/imagymnation/favicon.png" />
+		<link rel="preload" as="image" href={heroImage.src} fetchpriority="high" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
 		
